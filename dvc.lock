@@ -1,0 +1,26 @@
+schema: '2.0'
+stages:
+  train_model:
+    cmd: python src/train.py
+    deps:
+    - path: data/default of credit card clients.xls
+      hash: md5
+      md5: 606b48344e473cf97a7bd64e394be3fa
+      size: 5539328
+    - path: src/train.py
+      hash: md5
+      md5: a2336e08a964b17380448f21167ea23f
+      size: 1289
+    params:
+      params.yaml:
+        logistic_regression.C: 0.5
+        logistic_regression.max_iter: 200
+        random_forest.max_depth: 10
+        random_forest.n_estimators: 200
+        xgboost.learning_rate: 0.05
+        xgboost.n_estimators: 100
+    outs:
+    - path: models/model.pkl
+      hash: md5
+      md5: 0e6faf1926910ddb880a04cd3d45f7bf
+      size: 13843481

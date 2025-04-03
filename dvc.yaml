@@ -1,0 +1,23 @@
+stages:
+  train_model:
+    cmd: python src/train.py
+    deps:
+    - data/default of credit card clients.xls
+    - src/train.py
+    params:
+    - logistic_regression.C
+    - logistic_regression.max_iter
+    - random_forest.max_depth
+    - random_forest.n_estimators
+    - xgboost.learning_rate
+    - xgboost.n_estimators
+    outs:
+    - models/model.pkl
+  evaluate_model:
+    cmd: python src/evaluate.py
+    deps:
+    - models/model.pkl
+    - src/evaluate.py
+    metrics:
+    - metrics.json:
+        cache: false
