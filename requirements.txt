@@ -1,0 +1,8 @@
+dvc
+scikit-learn
+xgboost
+pandas
+pyyaml
+joblib
+matplotlib
+xlrd
